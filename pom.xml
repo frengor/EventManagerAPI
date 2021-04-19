@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>EventManagerAPI</name>
-    <description>Event manager API for Spigot plugins. Register only one bukkit listener per event, but run as many method per event as you want. </description>
+    <description>Event manager API for Spigot plugins. Register only one bukkit listener per event, but run as many method per event as you want.</description>
     <url>https://github.com/frengor/EventManagerAPI</url>
     <inceptionYear>2021</inceptionYear>
 
@@ -62,6 +62,7 @@
             <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
+
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
