@@ -3,7 +3,7 @@
 
 Event manager API for Spigot plugins. Register only one bukkit listener per event, but run as many method per event as you want.
 
-**JavaDoc:** <https://evm-docs.frengor.com> ([alternative link](https://frengor.github.io/EventManagerAPI/))  
+**JavaDoc:** <https://evm-docs.frengor.com> ([alternative link](https://frengor.github.io/EventManagerAPI))  
 
 Get it with maven:
 ```xml
