@@ -18,7 +18,7 @@ Get it with maven:
 <dependency>
     <groupId>com.frengor</groupId>
     <artifactId>EventManagerAPI</artifactId>
-    <version>1.2.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <scope>compile</scope>
 </dependency>
 ```
