@@ -31,12 +31,29 @@
     </properties>
 
     <repositories>
-        <!-- This adds the Spigot Maven repository to the build -->
+        <!-- fren_gor -->
+        <repository>
+            <id>fren_gor</id>
+            <url>https://nexus.frengor.com</url>
+        </repository>
+
+        <!-- Spigot -->
         <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
     </repositories>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>https://nexus.frengor.com/repository/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>releases</id>
+            <url>https://nexus.frengor.com/repository/releases/</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <!-- JetBrains Annotations -->

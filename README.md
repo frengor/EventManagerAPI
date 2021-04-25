@@ -1,24 +1,23 @@
 # EventManagerAPI
-[![Release](https://jitpack.io/v/frengor/EventManagerAPI.svg)](https://jitpack.io/#frengor/EventManagerAPI)
 
 Event manager API for Spigot plugins. Register only one bukkit listener per event, but run as many method per event as you want.
 
-**JavaDoc:** <https://evm-docs.frengor.com> ([alternative link](https://frengor.github.io/EventManagerAPI))  
+**JavaDoc:** <https://frengor.com/javadocs/EventManagerAPI/build-server/>
 
 Get it with maven:
 ```xml
 <repositories>
     <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
+        <id>fren_gor</id>
+        <url>https://nexus.frengor.com/</url>
     </repository>
 </repositories>
 ```   
 ```xml
 <dependency>
     <groupId>com.frengor</groupId>
-    <artifactId>EventManagerAPI</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>eventmanagerapi</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <scope>compile</scope>
 </dependency>
 ```
