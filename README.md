@@ -9,7 +9,7 @@ Get it with maven:
 <repositories>
     <repository>
         <id>fren_gor</id>
-        <url>https://nexus.frengor.com/</url>
+        <url>https://nexus.frengor.com/repository/public/</url>
     </repository>
 </repositories>
 ```   
