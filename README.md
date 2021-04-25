@@ -4,7 +4,7 @@ Event manager API for Spigot plugins. Register only one bukkit listener per even
 
 **JavaDoc:** <https://frengor.com/javadocs/EventManagerAPI/build-server/>
 
-Get it with maven:
+**Get it with maven:**
 ```xml
 <repositories>
     <repository>
