@@ -132,6 +132,9 @@
                 <configuration>
                     <doclint>none</doclint>
                     <quiet>true</quiet>
+                    <links>
+                        <link>https://javadoc.io/doc/org.jetbrains/annotations/19.0.0/</link>
+                    </links>
                 </configuration>
             </plugin>
         </plugins>
