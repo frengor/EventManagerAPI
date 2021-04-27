@@ -74,21 +74,22 @@ public final class EventManager {
     }
 
     /**
-     * Register a listener to an {@link Event} with {@link EventPriority#NORMAL} priority.<br>
+     * Register a listener to an {@link Event} with {@link EventPriority#NORMAL} priority.
+     * <p>A new bukkit {@link Listener} will be registered iff no other event with the same type and priority has been registered before.
      *
      * @param listener The listener. It can be every object.
      * @param event The event to listen to.
      * @param consumer The code to be run when the event is called.
      * @throws IllegalStateException If the {@link EventManager} is disabled. See {@link EventManager#isEnabled()}.
      * @throws IllegalArgumentException If any argument is null or the {@link Plugin} is disabled. See {@link Plugin#isEnabled()}.
-     * @implNote A new bukkit {@link Listener} will be registered iff no other event with the same type and priority has been registered before.
      */
     public <E extends Event> void register(@NotNull Object listener, @NotNull Class<E> event, @NotNull Consumer<E> consumer) throws IllegalStateException, IllegalArgumentException {
         register(listener, event, EventPriority.NORMAL, consumer);
     }
 
     /**
-     * Register a listener to an {@link Event} with a certain priority.<br>
+     * Register a listener to an {@link Event} with a certain priority.
+     * <p>A new bukkit {@link Listener} will be registered iff no other event with the same type and priority has been registered before.
      *
      * @param listener The listener. It can be every object.
      * @param event The event to listen to.
@@ -96,7 +97,6 @@ public final class EventManager {
      * @param consumer The code to be run when the event is called.
      * @throws IllegalStateException If the {@link EventManager} is disabled. See {@link EventManager#isEnabled()}.
      * @throws IllegalArgumentException If any argument is null or the {@link Plugin} is disabled. See {@link Plugin#isEnabled()}.
-     * @implNote A new bukkit {@link Listener} will be registered iff no other event with the same type and priority has been registered before.
      */
     public <E extends Event> void register(@NotNull Object listener, @NotNull Class<E> event, @NotNull EventPriority priority, @NotNull Consumer<E> consumer) throws IllegalStateException, IllegalArgumentException {
         if (!enabled.get())
