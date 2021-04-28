@@ -135,6 +135,12 @@
                     <links>
                         <link>https://javadoc.io/doc/org.jetbrains/annotations/19.0.0/</link>
                     </links>
+                    <offlineLinks>
+                        <offlineLink>
+                            <url>https://hub.spigotmc.org/javadocs/spigot/</url>
+                            <location>https://www.frengor.com/spigot-package-list/</location>
+                        </offlineLink>
+                    </offlineLinks>
                 </configuration>
             </plugin>
         </plugins>
