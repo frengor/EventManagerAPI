@@ -101,7 +101,6 @@
         <defaultGoal>clean install</defaultGoal>
         <resources>
             <resource>
-                <targetPath>.</targetPath>
                 <filtering>false</filtering>
                 <directory>.</directory>
                 <includes>
