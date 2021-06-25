@@ -1,4 +1,5 @@
 # EventManagerAPI
+[![Build Status](https://jenkins.frengor.com/job/EventManagerAPI/badge/icon)](https://jenkins.frengor.com/job/EventManagerAPI/)
 
 Event manager API for Spigot plugins. Register only one bukkit listener per event, but run as many method per event as you want.
 
