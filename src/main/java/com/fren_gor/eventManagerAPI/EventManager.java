@@ -61,7 +61,7 @@ public final class EventManager {
     private final Map<Class<? extends Event>, EventGroup<? extends Event>> events = new HashMap<>();
 
     /**
-     * Create an EventManager with {@link EventPriority#NORMAL} priority.
+     * Create an EventManager.
      *
      * @param plugin The plugin which will be used to register events.
      * @throws IllegalArgumentException If {@link Plugin} is null or not enabled.
