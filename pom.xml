@@ -67,7 +67,7 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>19.0.0</version>
+            <version>22.0.0</version>
             <scope>provided</scope>
         </dependency>
 
@@ -83,7 +83,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
 
@@ -91,7 +91,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>1.18.20</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -112,7 +112,30 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <executions>
+                    <execution>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <configuration>
+                            <annotationProcessorPaths>
+                                <path>
+                                    <groupId>org.projectlombok</groupId>
+                                    <artifactId>lombok</artifactId>
+                                    <version>1.18.20</version>
+                                </path>
+                            </annotationProcessorPaths>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -125,7 +148,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -137,15 +160,14 @@
                 <configuration>
                     <doclint>none</doclint>
                     <quiet>true</quiet>
+                    <bottom>
+                        <!-- Hacky way to insert custom css without modifying the full css style file -->
+                        <![CDATA[<style>main a[href*="://"]::after{content: none;}</style>Copyright &#169; {inceptionYear}&#x2013;{currentYear} fren_gor. All rights reserved.]]>
+                    </bottom>
                     <links>
-                        <link>https://javadoc.io/doc/org.jetbrains/annotations/19.0.0/</link>
+                        <link>https://javadoc.io/doc/org.jetbrains/annotations/22.0.0/</link>
+                        <link>https://hub.spigotmc.org/javadocs/spigot/</link>
                     </links>
-                    <offlineLinks>
-                        <offlineLink>
-                            <url>https://hub.spigotmc.org/javadocs/spigot/</url>
-                            <location>https://www.frengor.com/spigot-package-list/</location>
-                        </offlineLink>
-                    </offlineLinks>
                 </configuration>
             </plugin>
         </plugins>
