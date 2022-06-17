@@ -16,7 +16,7 @@
 
 package com.fren_gor.eventManagerAPI;
 
-import org.apache.commons.lang.Validate;
+import com.google.common.base.Preconditions;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventPriority;
@@ -67,8 +67,8 @@ public final class EventManager {
      * @throws IllegalArgumentException If {@link Plugin} is null or not enabled.
      */
     public EventManager(@NotNull Plugin plugin) throws IllegalArgumentException {
-        Validate.notNull(plugin, "Plugin cannot be null.");
-        Validate.isTrue(plugin.isEnabled(), "Plugin isn't enabled.");
+        Preconditions.checkNotNull(plugin, "Plugin cannot be null.");
+        Preconditions.checkArgument(plugin.isEnabled(), "Plugin isn't enabled.");
         this.plugin = plugin;
         registerPluginDisableEvent();
     }
@@ -104,10 +104,10 @@ public final class EventManager {
         if (!plugin.isEnabled())
             throw new IllegalArgumentException("Plugin is disabled. Cannot register any event.");
 
-        Validate.notNull(listener, "Listener cannot be null.");
-        Validate.notNull(event, "Event class cannot be null.");
-        Validate.notNull(priority, "EventPriority cannot be null.");
-        Validate.notNull(consumer, "Consumer cannot be null.");
+        Preconditions.checkNotNull(listener, "Listener cannot be null.");
+        Preconditions.checkNotNull(event, "Event class cannot be null.");
+        Preconditions.checkNotNull(priority, "EventPriority cannot be null.");
+        Preconditions.checkNotNull(consumer, "Consumer cannot be null.");
 
         EventGroup<E> el;
         synchronized (events) {
@@ -126,7 +126,7 @@ public final class EventManager {
      */
     public void unregister(@NotNull Object listener) throws IllegalStateException, IllegalArgumentException {
         checkInitialisation();
-        Validate.notNull(listener, "Listener cannot be null.");
+        Preconditions.checkNotNull(listener, "Listener cannot be null.");
         synchronized (events) {
             for (EventGroup<? extends Event> el : events.values()) {
                 el.unregisterListener(listener);
@@ -146,7 +146,7 @@ public final class EventManager {
      */
     public void clearEventListener(@NotNull Class<? extends Event> event) throws IllegalStateException, IllegalArgumentException {
         checkInitialisation();
-        Validate.notNull(event, "Event class cannot be null.");
+        Preconditions.checkNotNull(event, "Event class cannot be null.");
         synchronized (events) {
             EventGroup<? extends Event> el = events.get(event);
             if (el != null) {
@@ -167,7 +167,7 @@ public final class EventManager {
      */
     public void unregisterEvent(@NotNull Class<? extends Event> event) throws IllegalStateException, IllegalArgumentException {
         checkInitialisation();
-        Validate.notNull(event, "Event class cannot be null.");
+        Preconditions.checkNotNull(event, "Event class cannot be null.");
         synchronized (events) {
             EventGroup<? extends Event> el = events.remove(event);
             if (el != null) {
@@ -282,8 +282,8 @@ public final class EventManager {
         }
 
         public void register(@NotNull Object listener, @NotNull Consumer<E> consumer) {
-            Validate.notNull(listener, "Listener is null.");
-            Validate.notNull(consumer, "Consumer is null.");
+            Preconditions.checkNotNull(listener, "Listener is null.");
+            Preconditions.checkNotNull(consumer, "Consumer is null.");
             readWriteLock.writeLock().lock();
             try {
                 List<Consumer<E>> l = map.computeIfAbsent(listener, k -> new LinkedList<>());
@@ -322,7 +322,7 @@ public final class EventManager {
         }
 
         public void call(@NotNull Event e) {
-            Validate.notNull(e, "Event cannot be null.");
+            Preconditions.checkNotNull(e, "Event cannot be null.");
             if (e.getClass() != clazz) {
                 return;
             }
